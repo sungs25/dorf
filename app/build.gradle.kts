@@ -70,4 +70,6 @@ dependencies {
     implementation(libs.room3.runtime)
     ksp(libs.room3.compiler)
     implementation(libs.androidx.sqlite.bundled)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.lifecycle.runtime.compose)
 }
