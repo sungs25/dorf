@@ -69,4 +69,5 @@ dependencies {
 
     implementation(libs.room3.runtime)
     ksp(libs.room3.compiler)
+    implementation(libs.androidx.sqlite.bundled)
 }
