@@ -44,4 +44,48 @@ data class Word(
     // ── 메타 ──
     val createdAt: Long,
     val updatedAt: Long
-)
+) {
+    companion object {
+        fun createManual(
+            word: String,
+            meaning: String,
+            partOfSpeech: String,
+            gender: String?,
+            pluralForm: String?,
+        ): Word {
+            val now = System.currentTimeMillis()
+            return Word(
+                word = word,
+                normalizedWord = "",  // Repository가 채움 (책임 분리)
+                meaning = meaning,
+                partOfSpeech = partOfSpeech,
+                gender = gender,
+                pluralForm = pluralForm,
+                // SRS 기본값
+                nextReviewDate = now,   // 지금부터 복습 가능
+                intervalDays = 0,
+                easeFactor = 2.5f,
+                isLearned = false,
+                // 메타
+                createdAt = now,
+                updatedAt = now,
+                // 나머지 유료 필드는 전부 null (수동 입력이니까)
+                additionalMeanings = null,
+                simpleExample = null,
+                simpleExampleKo = null,
+                pronunciation = null,
+
+                conjugation = null,
+                isIrregular = null,
+                isSeparable = null,
+                isReflexive = null,
+                caseGovernment = null,
+                comparative = null,
+                superlative = null,
+                synonyms = null,
+                antonyms = null,
+                richExamples = null
+            )
+        }
+    }
+}
