@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "973575873483",
+    "project_id": "dorf-dc778",
+    "storage_bucket": "dorf-dc778.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:973575873483:android:635a5c90dd82eb6514cc4e",
+        "android_client_info": {
+          "package_name": "com.sungs.dorf"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9u931HSx7KlR1xv4DB5rPElutUjU4yGs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
