@@ -1,6 +1,9 @@
 package com.sungs.dorf.di
 
 import com.google.firebase.Firebase
+import com.google.firebase.ai.GenerativeModel
+import com.google.firebase.ai.ai
+import com.google.firebase.ai.type.GenerativeBackend
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.firestore
 import dagger.Module
@@ -16,4 +19,10 @@ object FirebaseModule {
     @Provides
     @Singleton
     fun provideFirestore(): FirebaseFirestore = Firebase.firestore
+
+    @Provides
+    @Singleton
+    fun provideGenerativeModel(): GenerativeModel =
+        Firebase.ai(backend = GenerativeBackend.googleAI())   // Developer API 백엔드
+            .generativeModel("gemini-3.1-flash-lite")
 }
