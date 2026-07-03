@@ -79,4 +79,7 @@ dependencies {
     implementation("com.google.firebase:firebase-firestore")
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.kotlinx.coroutines.play.services)
+
+    implementation("com.google.firebase:firebase-ai")
+    implementation("com.google.guava:guava:33.0.0-android")
 }
