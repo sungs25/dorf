@@ -82,4 +82,6 @@ dependencies {
 
     implementation("com.google.firebase:firebase-ai")
     implementation("com.google.guava:guava:33.0.0-android")
+
+    implementation("com.google.firebase:firebase-vertexai:16.0.0")
 }
