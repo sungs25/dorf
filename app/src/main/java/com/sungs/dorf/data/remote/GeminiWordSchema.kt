@@ -25,5 +25,6 @@ fun basicWordPrompt(userInput: String) = """
 독일어 단어 "$userInput"의 정보를 채워라.
 - word: 기본형(Grundform). 사용자가 변화형을 넣어도 기본형으로.
 - 명사면 gender(der/die/das)와 pluralForm을 채우고, 아니면 비워라.
-- meaning은 한국어 핵심 뜻.
+- meaning: 가장 일반적이고 중립적인 핵심 뜻 하나.
+- additionalMeanings: 학습자가 실제로 자주 쓰는 일반적인 뜻만. 비속어·모욕·희귀 용법은 제외. 없으면 빈 배열.
 """.trimIndent()

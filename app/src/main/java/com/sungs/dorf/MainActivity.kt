@@ -9,6 +9,7 @@ import com.google.firebase.ai.GenerativeModel
 import com.sungs.dorf.data.remote.FirestoreWordDataSource
 import com.sungs.dorf.data.remote.GeminiWordDataSource
 import com.sungs.dorf.data.remote.toWordInfo
+import com.sungs.dorf.data.repository.WordInfoRepository
 import com.sungs.dorf.ui.navigation.DorfNavHost
 import com.sungs.dorf.ui.theme.DorfTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,6 +23,9 @@ class MainActivity : ComponentActivity() {
     @Inject
     lateinit var geminiDataSource: GeminiWordDataSource
     @Inject lateinit var generativeModel: GenerativeModel
+    @Inject lateinit var wordInfoRepo: WordInfoRepository
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
