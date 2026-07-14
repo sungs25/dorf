@@ -27,3 +27,21 @@ fun GeminiWordResponse.toWordInfo() = WordInfo(
     comparative = null, superlative = null,
     synonyms = emptyList(), antonyms = emptyList(), richExamples = emptyList(),
 )
+
+fun GeminiWordResponse.toGlobalWordDto(): GlobalWordDto = GlobalWordDto(
+    basic = BasicDto(
+        word = word,
+        meaning = meaning,
+        additionalMeanings = additionalMeanings,
+        partOfSpeech = partOfSpeech,
+        gender = gender,
+        pluralForm = pluralForm,
+        simpleExample = simpleExample,
+        simpleExampleKo = simpleExampleKo,
+    ),
+    premium = null,                    // 무료 응답이라 아직 없음
+    metadata = MetadataDto(
+        createdAt = System.currentTimeMillis(),
+        reportCount = 0,
+    ),
+)

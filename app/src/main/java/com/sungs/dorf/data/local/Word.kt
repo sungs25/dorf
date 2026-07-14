@@ -39,7 +39,7 @@ data class Word(
     val nextReviewDate: Long,               // 다음 복습 시각 (epoch millis)
     val intervalDays: Int,                  // 현재 복습 간격
     val easeFactor: Float,                  // SM-2 난이도 계수 (시작 2.5)
-    val isLearned: Boolean,                 // "외움" 처리 여부 (테스트 활성화 카운트용)
+    val isLearned: Boolean,                 // "외움" 처리 여부
 
     // ── 메타 ──
     val createdAt: Long,
