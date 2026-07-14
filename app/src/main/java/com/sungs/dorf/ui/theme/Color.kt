@@ -1,5 +1,6 @@
 package com.sungs.dorf.ui.theme
 
+
 import androidx.compose.ui.graphics.Color
 
 // ── 잉크 그린 팔레트 (라이트) ──
@@ -11,3 +12,4 @@ val InkText       = Color(0xFF22201B)  // 본문 잉크
 val InkTextMuted  = Color(0xFF6B665A)  // 보조 텍스트
 val PaperBorder   = Color(0xFFE0DACB)  // 테두리
 val GreenTintBg   = Color(0xFFE6EFE9)  // 칩/뱃지 배경
+val ErrorRed      = Color(0xFF9A3B2E)  // 에러 (종이톤에 맞춰 살짝 죽인 빨강)

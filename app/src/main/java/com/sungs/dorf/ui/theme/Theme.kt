@@ -1,57 +1,42 @@
 package com.sungs.dorf.ui.theme
 
-import android.app.Activity
-import android.os.Build
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.dynamicDarkColorScheme
-import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.graphics.Color
 
-private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
-)
+private val DorfLightColors = lightColorScheme(
+    primary            = InkGreen,
+    onPrimary          = Color.White,
+    primaryContainer   = GreenTintBg,
+    onPrimaryContainer = InkGreenDark,
 
-private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
+    background          = PaperBg,
+    onBackground        = InkText,
 
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+    surface             = PaperSurface,
+    onSurface           = InkText,
+    onSurfaceVariant    = InkTextMuted,   // DetailRow 라벨·리스트 뜻·빈상태 문구
+
+    // 칩/뱃지·보조 강조에 그린 톤 연결
+    secondaryContainer   = GreenTintBg,
+    onSecondaryContainer = InkGreenDark,
+
+    outline             = PaperBorder,
+    outlineVariant      = PaperBorder,
+
+    error   = ErrorRed,
+    onError = Color.White,
 )
 
 @Composable
 fun DorfTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {
-    val colorScheme = when {
-        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-            val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-        }
-
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
-    }
-
+    // 라이트 전용. dynamicColor·다크 분기 제거 —
+    // 나중에 다크 추가하면 여기서 스킴만 분기하면 됨.
     MaterialTheme(
-        colorScheme = colorScheme,
+        colorScheme = DorfLightColors,
         typography = Typography,
         content = content
     )
