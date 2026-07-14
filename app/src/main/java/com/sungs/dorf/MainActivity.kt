@@ -7,6 +7,8 @@ import androidx.activity.compose.setContent
 import androidx.lifecycle.lifecycleScope
 import com.google.firebase.ai.GenerativeModel
 import com.sungs.dorf.data.remote.FirestoreWordDataSource
+import com.sungs.dorf.data.remote.GeminiWordDataSource
+import com.sungs.dorf.data.remote.toWordInfo
 import com.sungs.dorf.ui.navigation.DorfNavHost
 import com.sungs.dorf.ui.theme.DorfTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -17,9 +19,12 @@ import javax.inject.Inject
 class MainActivity : ComponentActivity() {
     @Inject
     lateinit var dataSource: FirestoreWordDataSource
+    @Inject
+    lateinit var geminiDataSource: GeminiWordDataSource
     @Inject lateinit var generativeModel: GenerativeModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
 
         setContent {
             DorfTheme {          // 네 테마 이름에 맞게

@@ -4,8 +4,10 @@ import com.google.firebase.Firebase
 import com.google.firebase.ai.GenerativeModel
 import com.google.firebase.ai.ai
 import com.google.firebase.ai.type.GenerativeBackend
+import com.google.firebase.ai.type.generationConfig
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.firestore
+import com.sungs.dorf.data.remote.basicWordSchema
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -20,9 +22,13 @@ object FirebaseModule {
     @Singleton
     fun provideFirestore(): FirebaseFirestore = Firebase.firestore
 
-    @Provides
-    @Singleton
+    @Provides @Singleton
     fun provideGenerativeModel(): GenerativeModel =
-        Firebase.ai(backend = GenerativeBackend.googleAI())   // Developer API 백엔드
-            .generativeModel("gemini-3.1-flash-lite")
+        Firebase.ai(backend = GenerativeBackend.googleAI()).generativeModel(
+            modelName = "gemini-3.1-flash-lite",
+            generationConfig = generationConfig {
+                responseMimeType = "application/json"   // JSON 강제
+                responseSchema = basicWordSchema       // ① 스키마
+            }
+        )
 }
